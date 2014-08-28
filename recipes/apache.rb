@@ -45,7 +45,7 @@ if platform?('windows')
     action [:add,:start]
   end
 else
-  web_app "wordpress" do
+  web_app node["apache"]["virtual_host"]["name"] do
     template "wordpress.conf.erb"
     docroot node['wordpress']['dir']
     server_name node['wordpress']['server_name']
